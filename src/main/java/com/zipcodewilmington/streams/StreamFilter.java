@@ -28,7 +28,7 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(Person[] people, Character startingCharacter) {
-        this.
+        this(Stream.of(people), startingCharacter);
     }
 
     /**
@@ -36,7 +36,7 @@ public class StreamFilter {
      * @param startingCharacter - character to filter by
      */ //TODO
     public StreamFilter(List<Person> people, Character startingCharacter) {
-        this(Stream.empty(), null);
+        this(people.stream(), startingCharacter);
     }
 
 
@@ -55,7 +55,9 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        return personStream.filter((person -> person.getName().startsWith(startingCharacter))).collect)(Collectors.toList());
+        return personStream.filter(person -> person.getName()
+                .startsWith(startingCharacter))
+                .collect(Collectors.toList());
     }
 
 
@@ -64,7 +66,8 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-        return personStream.filter((person -> person.getName());
+        return personStream.filter((person -> person.getName()
+                .startsWith(startingCharacter))).collect(Collectors.toList());
 
     }
 
